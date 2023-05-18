@@ -26,7 +26,7 @@ public class Juego extends InterfaceJuego
 		
 		this.asteroides = new Asteroide(((int) (Math.random()*800 + 1)),1,20,20);
 		
-		this.destructor = new DestructorEstelar(((int) (Math.random()*800 + 1)),1,20,20);
+		this.destructor = new DestructorEstelar(((int) (Math.random()*800 + 1)),1,30,30);
 
 		// Inicia el juego!
 		this.entorno.iniciar();
@@ -43,27 +43,31 @@ public class Juego extends InterfaceJuego
 		// Procesamiento de un instante de tiempo
 		// ...
 		this.asteroides.dibujarse(this.entorno); // se dibuja el asteroide
-		this.asteroides.moverDerecha(); // direccion que toma el asteroide
-		
+		// this.asteroides.moverDerecha(); // direccion que toma el asteroide
+		// this.asteroides.moverIzquierda(); // direccion que toma el asteroide
+		if (this.asteroides.getXInicial() > 400) {
+			this.asteroides.moverIzquierda();
+			System.out.print(this.asteroides.getXInicial());
+		}
+		else {
+			this.asteroides.moverDerecha();
+			System.out.print(this.asteroides.getXInicial());
+		}
 		this.destructor.dibujarse(this.entorno); // se dibuja un destructor estelar
-		this.destructor.moverDerecha();
-		this.destructor.moverIzquierda();
-		
+		// this.destructor.moverDerecha();
+		// this.destructor.moverIzquierda();
+		// this.destructor.mover(1, true);
+		this.destructor.mover(-1, true);
 		
 		this.naveMegaShip.dibujarse(this.entorno);
-		if (this.entorno.estaPresionada(this.entorno.TECLA_DERECHA)
-				&& this.naveMegaShip.getX() + this.naveMegaShip.getAncho() / 2 < this.entorno.ancho()) {
-			this.naveMegaShip.moverDerecha();
+		if (this.entorno.estaPresionada(this.entorno.TECLA_DERECHA) && this.naveMegaShip.getX() + this.naveMegaShip.getAncho() / 2 < this.entorno.ancho()) {
+			this.naveMegaShip.mover(-1, false);
 		}
-		if (this.entorno.estaPresionada(this.entorno.TECLA_IZQUIERDA)
-				&& this.naveMegaShip.getX() - this.naveMegaShip.getAncho() / 2 > 0) {
-			this.naveMegaShip.moverIzquierda();
+		if (this.entorno.estaPresionada(this.entorno.TECLA_IZQUIERDA) && this.naveMegaShip.getX() - this.naveMegaShip.getAncho() / 2 > 0) {
+			this.naveMegaShip.mover(1, false);
 		}
-		
-
 	}
 	
-
 	@SuppressWarnings("unused")
 	public static void main(String[] args)
 	{

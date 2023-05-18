@@ -7,14 +7,17 @@ import entorno.Entorno;
 public class Asteroide {
 
 	private int x;
+	private int xInicial;
 	private int y;
 	private int ancho;
 	private int alto;
 	private int velocidad;
+	// private int sentidoRandom;	
 	
 	Asteroide(int x, int y,int ancho,int alto){
 		
-		this.x = (int) (Math.random()*800 + 1);
+		this.xInicial = (int) (Math.random()*800 + 1);
+		this.x = this.xInicial; // Asigna a x la primera coordenada (de donde arranca) para definir si se mueve hacia la derecha o izquierda
 		this.y = 1;
 		this.ancho = ancho;
 		this.alto = alto;
@@ -27,12 +30,33 @@ public class Asteroide {
 
 
 	void moverDerecha() {
-		this.y = this.y + this.velocidad;
-		this.x = this.x - this.velocidad * (-1);
+
+			this.y = this.y + this.velocidad;
+			this.x = this.x - this.velocidad * (-1);
 	}
 
 	void moverIzquierda() {
-		this.y = this.y + this.velocidad;
-		this.x = this.x - this.velocidad;
+			this.y = this.y + this.velocidad;
+			this.x = this.x - this.velocidad ;
 	}
+
+	public int getXInicial() {
+		return xInicial;
+	}
+
+	public int get() {
+		return y;
+	}
+
+	public int getAncho() {
+		return ancho;
+	}
+
+	public int getAlto() {
+		return alto;
+	}
+
+	public int getVelocidad() {
+		return velocidad;
+	}	
 }
