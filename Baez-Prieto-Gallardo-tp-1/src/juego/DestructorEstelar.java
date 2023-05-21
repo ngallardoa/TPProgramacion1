@@ -25,6 +25,10 @@ DestructorEstelar(double x, double y,int ancho,int alto){
 		this.contadorMovimientos = 0;
 		this.sentidoMovimiento = 1;
 	}
+	public ProyectilDestructor lanzarProyectil() {
+		ProyectilDestructor ionDestructor = new ProyectilDestructor(this.x,this.y);
+		return ionDestructor;
+}
 	
 	public double getX() {
 		return x;

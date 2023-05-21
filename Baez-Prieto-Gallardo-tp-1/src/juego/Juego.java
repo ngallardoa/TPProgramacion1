@@ -12,8 +12,8 @@ public class Juego extends InterfaceJuego
 	private Asteroide asteroides; //variable de instancia de asteroide
 	private DestructorEstelar destructor;
 	private Proyectil miProyectil;
-	private Proyectil proyectilDestructor;
 	private DestructorEstelar destructores [ ] ;
+	private ProyectilDestructor ionDestructor;
 	
 	
 	
@@ -41,6 +41,8 @@ public class Juego extends InterfaceJuego
 			destructores[i]= new DestructorEstelar(destructorX,destructorY,20,20); // genera los 4 destructores iniciales
 			destructorX+=200;
 			destructorY+=30;
+			
+			
 		}
 		
 		
@@ -83,6 +85,14 @@ public class Juego extends InterfaceJuego
 		for (int i=0;i<destructores.length;i++) {
 			destructores[i].dibujarse(this.entorno);
 			destructores[i].mover(-1, true);
+			if (ionDestructor==null)
+				ionDestructor= this.destructores[i].lanzarProyectil();
+			if (ionDestructor!=null) {
+				ionDestructor.dibujarse(this.entorno);
+				ionDestructor.mover();
+				if(ionDestructor.salioDePantalla())
+					ionDestructor=null;
+			}
 		}
 		
 		
