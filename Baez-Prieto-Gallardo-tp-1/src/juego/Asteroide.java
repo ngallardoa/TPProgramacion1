@@ -12,7 +12,6 @@ public class Asteroide {
 	private int ancho;
 	private int alto;
 	private int velocidad;
-	// private int sentidoRandom;	
 	
 	Asteroide(int x, int y,int ancho,int alto){
 		
@@ -30,21 +29,26 @@ public class Asteroide {
 
 
 	void moverDerecha() {
-
-			this.y = this.y + this.velocidad;
-			this.x = this.x - this.velocidad * (-1);
+		this.y = this.y + this.velocidad;
+		this.x = this.x - this.velocidad * (-1);
 	}
-
 	void moverIzquierda() {
-			this.y = this.y + this.velocidad;
-			this.x = this.x - this.velocidad ;
+		this.y = this.y + this.velocidad;
+		this.x = this.x - this.velocidad;
+	}
+	public boolean salioDePantalla() {
+		return (this.y>600); 		
+	}
+	
+	public int getX() {
+		return x;
 	}
 
-	public int getXInicial() {
+	public int getxInicial() {
 		return xInicial;
 	}
 
-	public int get() {
+	public int getY() {
 		return y;
 	}
 
@@ -58,5 +62,7 @@ public class Asteroide {
 
 	public int getVelocidad() {
 		return velocidad;
-	}	
+	}
+
+	
 }

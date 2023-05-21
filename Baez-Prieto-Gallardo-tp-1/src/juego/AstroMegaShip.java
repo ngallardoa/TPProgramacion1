@@ -12,8 +12,7 @@ public class AstroMegaShip {
 	private int ancho;
 	private int alto;
 	private int velocidad;
-	private int contadorMovimientos;
-	private int sentidoMovimiento;
+	
 	//private Image nave;
 	
 	
@@ -23,9 +22,7 @@ public class AstroMegaShip {
 		this.y=y;
 		this.ancho=ancho;
 		this.alto=alto;
-		this.velocidad = 2;
-		this.contadorMovimientos = 0;
-		this.sentidoMovimiento = 1;
+		this.velocidad = 3;
 		//this.nave = Herramientas.cargarImagen("ship1.jpg");
 		
 	}
@@ -33,28 +30,19 @@ public class AstroMegaShip {
 	void dibujarse(Entorno entorno) {
 		entorno.dibujarRectangulo(this.x, this.y, this.ancho, this.alto, 0, Color.YELLOW);
 	}
-
-	void mover(int sentido, boolean zigZag){
-		if (zigZag == true){
-			if (this.contadorMovimientos == 3){
-				contadorMovimientos = 0;
-				this.sentidoMovimiento *= -1;
-			}
-		}
-			// this.y = this.y + this.velocidad;
-			this.x = this.x - this.velocidad * sentido * this.sentidoMovimiento;
-		if (zigZag == true){
-			this.contadorMovimientos ++;
-		}
+	
+	public Proyectil lanzarProyectil() {
+		Proyectil miProyectil = new Proyectil(this.x,this.y);
+		return miProyectil;
 	}
 	
-	// void moverDerecha() {
-	// 	this.x = this.x + this.velocidad;
-	// }
+	void moverDerecha() {
+		this.x = this.x + this.velocidad;
+	}
 	
-	// void moverIzquierda() {
-	// 	this.x = this.x - this.velocidad;
-	// }
+	void moverIzquierda() {
+		this.x = this.x - this.velocidad;
+	}
 
 	public int getX() {
 		return x;

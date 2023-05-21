@@ -6,25 +6,46 @@ import entorno.Entorno;
 
 public class DestructorEstelar {
 	
-	private int x;
-	private int y;
+
+	private double x;
+	private double y;
 	private int ancho;
 	private int alto;
-	private int velocidad;
-	private int contadorMovimientos;
-	private int sentidoMovimiento;
+	private double velocidad;
+	private double contadorMovimientos;
+	private double sentidoMovimiento;
 	
-	DestructorEstelar(int x, int y,int ancho,int alto){
+DestructorEstelar(double x, double y,int ancho,int alto){
 		
-		this.x = (int) (Math.random()*800 + 1);
+		this.x = x;
 		this.y = 1;
 		this.ancho = ancho;
 		this.alto = alto;
-		this.velocidad = 1;
+		this.velocidad = 0.5;
 		this.contadorMovimientos = 0;
 		this.sentidoMovimiento = 1;
 	}
 	
+	public double getX() {
+		return x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public int getAncho() {
+		return ancho;
+	}
+
+	public int getAlto() {
+		return alto;
+	}
+
+	public double getVelocidad() {
+		return velocidad;
+	}
+
 	void dibujarse(Entorno entorno) {
 		entorno.dibujarRectangulo(this.x, this.y, this.ancho, this.alto, 0, Color.GREEN);
 	}
@@ -40,16 +61,15 @@ public class DestructorEstelar {
 			this.x = this.x - this.velocidad * sentido * this.sentidoMovimiento;
 			this.contadorMovimientos ++;
 	}
-	// void moverDerecha(){
-	// 	this.y = this.y + this.velocidad;
-	// 	this.x = this.x - this.velocidad * (-1);
-	// 	this.contadorMovimientos ++;
-	// }
+	//void moverDerecha() {
+	//	this.y = this.y + this.velocidad;
+	//	this.x = this.x - this.velocidad * (-1);
+	//}
 
-	// void moverIzquierda(){
-	// 	this.y = this.y + this.velocidad;
-	// 	this.x = this.x - this.velocidad;
-	// 	this.contadorMovimientos ++;
-	// }
+	//void moverIzquierda() {
+	//	this.y = this.y + this.velocidad;
+	//	this.x = this.x - this.velocidad;
+	//}
+
 }
 
