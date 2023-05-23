@@ -15,11 +15,11 @@ public class ProyectilDestructor {
 
 	ProyectilDestructor (double x,double y) {
 		
-		this.x=x;
-		this.y=y;
-		this.ancho=10;
-		this.alto=20;
-		this.velocidad=1;
+		this.x = x;
+		this.y = y;
+		this.ancho = 10;
+		this.alto = 20;
+		this.velocidad = 1;
 
 	}
 	
@@ -30,7 +30,7 @@ public class ProyectilDestructor {
 		this.y += velocidad; //el proyectil se mueve hacia abajo
 	}
 	public boolean salioDePantalla() {
-		return (this.y>600); 				//devuelve si el proyectil salio de la pantalla
+		return (this.y > 600); 				//devuelve si el proyectil salio de la pantalla
 	}
 
 	public double getX() {

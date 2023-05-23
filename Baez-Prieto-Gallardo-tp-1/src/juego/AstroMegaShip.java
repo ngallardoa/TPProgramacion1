@@ -18,10 +18,10 @@ public class AstroMegaShip {
 	
 	
 	AstroMegaShip(int x, int y , int ancho, int alto){
-		this.x=x;
-		this.y=y;
-		this.ancho=ancho;
-		this.alto=alto;
+		this.x = x;
+		this.y = y;
+		this.ancho = ancho;
+		this.alto = alto;
 		this.velocidad = 3;
 		//this.nave = Herramientas.cargarImagen("ship1.jpg");
 		

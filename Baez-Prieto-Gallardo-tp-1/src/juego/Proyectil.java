@@ -13,13 +13,13 @@ public class Proyectil {
 	private int velocidad=2;
 	
 
-	Proyectil (int x,int y){
+	Proyectil (int x, int y){
 		
-		this.x=x;
-		this.y=y;
-		this.ancho=10;
-		this.alto=20;
-		this.velocidad=3;	
+		this.x = x;
+		this.y = y;
+		this.ancho = 10;
+		this.alto = 20;
+		this.velocidad = 3;	
 		
 	}
 	void dibujarse(Entorno entorno) {
@@ -30,7 +30,7 @@ public class Proyectil {
 	}
 	
 	public boolean salioDePantalla() {
-		return (this.y<0); 				//devuelve si el proyectil salio de la pantalla
+		return (this.y < 0); 				//devuelve si el proyectil salio de la pantalla
 	}
 
 	public int getX() {

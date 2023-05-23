@@ -15,7 +15,7 @@ public class DestructorEstelar {
 	private double contadorMovimientos;
 	private double sentidoMovimiento;
 	
-DestructorEstelar(double x, double y,int ancho,int alto){
+DestructorEstelar(double x, double y, int ancho, int alto){
 		
 		this.x = x;
 		this.y = 1;
