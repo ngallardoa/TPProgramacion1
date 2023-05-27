@@ -1,12 +1,9 @@
 package juego;
-
 import java.awt.Color;
-
 import entorno.Entorno;
 
 public class DestructorEstelar {
 	
-
 	private double x;
 	private double y;
 	private int ancho;
@@ -15,10 +12,10 @@ public class DestructorEstelar {
 	private double contadorMovimientos;
 	private double sentidoMovimiento;
 	
-DestructorEstelar(double x, double y, int ancho, int alto){
+	DestructorEstelar(double x, double y, int ancho, int alto){
 		
 		this.x = x;
-		this.y = 1;
+		this.y = y;
 		this.ancho = ancho;
 		this.alto = alto;
 		this.velocidad = 0.5;
@@ -28,7 +25,7 @@ DestructorEstelar(double x, double y, int ancho, int alto){
 	public ProyectilDestructor lanzarProyectil() {
 		ProyectilDestructor ionDestructor = new ProyectilDestructor(this.x,this.y);
 		return ionDestructor;
-}
+	}
 	
 	public double getX() {
 		return x;
@@ -65,15 +62,9 @@ DestructorEstelar(double x, double y, int ancho, int alto){
 			this.x = this.x - this.velocidad * sentido * this.sentidoMovimiento;
 			this.contadorMovimientos ++;
 	}
-	//void moverDerecha() {
-	//	this.y = this.y + this.velocidad;
-	//	this.x = this.x - this.velocidad * (-1);
-	//}
 
-	//void moverIzquierda() {
-	//	this.y = this.y + this.velocidad;
-	//	this.x = this.x - this.velocidad;
-	//}
-
+	public boolean salioDePantalla() {
+		return (this.y > 600); 				//devuelve si el proyectil salio de la pantalla
+	}
 }
 
