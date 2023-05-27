@@ -6,6 +6,7 @@ import java.util.Random;
 public class Juego extends InterfaceJuego
 {
 	// El objeto Entorno que controla el tiempo y otros
+
 	private Entorno entorno;
 	private AstroMegaShip naveMegaShip; // se declara variable de instacia de la nave
 	private Asteroide asteroides; // variable de instancia de asteroide
@@ -19,7 +20,7 @@ public class Juego extends InterfaceJuego
 	private long tiempoTranscurrido;
 	
 	// Variables y métodos propios de cada grupo
-	// ...
+
 	private boolean esUnico(DestructorEstelar[] destructores, int numero, int indiceActual){
 
 		int diferencia = 50;
@@ -78,7 +79,7 @@ public class Juego extends InterfaceJuego
 		// ...
 		if (this.asteroides != null) {
 			this.asteroides.dibujarse(this.entorno); // se dibuja el asteroide
-			if (this.asteroides.getxInicial() > 400) {
+			if (this.asteroides.getxInicial() > (anchoPantalla / 2)) {
 				this.asteroides.moverIzquierda();
 			}
 			else {
@@ -88,7 +89,7 @@ public class Juego extends InterfaceJuego
 				this.asteroides = null;			
 		}
 		if (this.asteroides == null){
-			asteroides = new Asteroide(((int) (Math.random()*800 + 1)), 1, 20, 20); // si el asteroide es eliminado o sale de pantalla se genera un nuevo asteroide			
+			asteroides = new Asteroide(((int) (Math.random() * anchoPantalla + 1)), 1, 20, 20); // si el asteroide es eliminado o sale de pantalla se genera un nuevo asteroide			
 		}
 
 		for (int i = 0; i < destructores.length; i++) {
@@ -96,8 +97,6 @@ public class Juego extends InterfaceJuego
 			destructores[i].mover(-1, true);
 			if ((System.currentTimeMillis() - tiempoTranscurrido >= 1000) && ionDestructor == null){
 				tiempoTranscurrido = System.currentTimeMillis();
-				System.out.print(" ");
-				System.out.print(tiempoTranscurrido);
 				ionDestructor = this.destructores[i].lanzarProyectil();
 			}
 			if (ionDestructor != null) {
