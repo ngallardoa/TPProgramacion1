@@ -1,7 +1,5 @@
 package juego;
-
 import java.awt.Color;
-
 import entorno.Entorno;
 
 public class VidaExtra {
@@ -13,6 +11,7 @@ public class VidaExtra {
 	private double velocidad;
 	private double contadorMovimientos;
 	private double sentidoMovimiento;
+	private int altoPantalla = 600;
 	
     vidaExtra(double x, double y, int ancho, int alto){
 		
@@ -62,6 +61,6 @@ public class VidaExtra {
 	}
 
 	public boolean salioDePantalla() {
-		return (this.y > anchoPantalla); 				//devuelve si el proyectil salio de la pantalla
+		return (this.y > altoPantalla); 				//devuelve si el proyectil salio de la pantalla
 	}
 }

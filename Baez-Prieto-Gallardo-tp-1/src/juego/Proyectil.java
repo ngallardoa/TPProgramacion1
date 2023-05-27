@@ -1,7 +1,5 @@
 package juego;
-
 import java.awt.Color;
-
 import entorno.Entorno;
 
 public class Proyectil {
@@ -10,7 +8,7 @@ public class Proyectil {
 	private int y;
 	private int ancho;
 	private int alto;
-	private int velocidad=2;
+	private int velocidad = 2;
 	
 
 	Proyectil (int x, int y){

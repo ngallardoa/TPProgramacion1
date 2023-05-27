@@ -1,7 +1,5 @@
 package juego;
-
 import java.awt.Color;
-
 import entorno.Entorno;
 
 public class ProyectilDestructor {
@@ -10,8 +8,8 @@ public class ProyectilDestructor {
 	private double y;
 	private int ancho;
 	private int alto;
-	private int velocidad=2;
-	
+	private int velocidad = 2;
+	private int altoPantalla = 600;	
 
 	ProyectilDestructor (double x,double y) {
 		
@@ -30,7 +28,7 @@ public class ProyectilDestructor {
 		this.y += velocidad; //el proyectil se mueve hacia abajo
 	}
 	public boolean salioDePantalla() {
-		return (this.y > 600); 				//devuelve si el proyectil salio de la pantalla
+		return (this.y > altoPantalla); 				//devuelve si el proyectil salio de la pantalla
 	}
 
 	public double getX() {

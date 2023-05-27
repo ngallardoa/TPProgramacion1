@@ -1,8 +1,6 @@
 package juego;
-
 //import java.awt.Image;
 import java.awt.Color;
-
 import entorno.Entorno;
 
 public class AstroMegaShip {
@@ -13,9 +11,7 @@ public class AstroMegaShip {
 	private int alto;
 	private int velocidad;
 	
-	//private Image nave;
-	
-	
+	//private Image nave;	
 	
 	AstroMegaShip(int x, int y , int ancho, int alto){
 		this.x = x;

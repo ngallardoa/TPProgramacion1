@@ -11,6 +11,7 @@ public class DestructorEstelar {
 	private double velocidad;
 	private double contadorMovimientos;
 	private double sentidoMovimiento;
+	private int altoPantalla = 600;	
 	
 	DestructorEstelar(double x, double y, int ancho, int alto){
 		
@@ -64,7 +65,7 @@ public class DestructorEstelar {
 	}
 
 	public boolean salioDePantalla() {
-		return (this.y > 600); 				//devuelve si el proyectil salio de la pantalla
+		return (this.y > altoPantalla); //devuelve si el proyectil salio de la pantalla
 	}
 }
 

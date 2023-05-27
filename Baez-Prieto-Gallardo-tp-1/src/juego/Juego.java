@@ -54,7 +54,7 @@ public class Juego extends InterfaceJuego
 		// Inicializar lo que haga falta para el juego
 		this.naveMegaShip = new AstroMegaShip(400, 580, 30, 30); // asignamos valores a la variable
 		
-		this.asteroides = new Asteroide(((int) (Math.random()*800 + 1)),1,20,20);
+		this.asteroides = new Asteroide(((int) (Math.random()*anchoPantalla + 1)),1,20,20);
 		
 		this.destructor = new DestructorEstelar(5,1,20,20);
 		
