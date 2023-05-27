@@ -23,7 +23,7 @@ public class Juego extends InterfaceJuego
 
 	private boolean esUnico(DestructorEstelar[] destructores, int numero, int indiceActual){
 
-		int diferencia = 50;
+		int diferencia = 100;
 
 		for (int i = 0; i < indiceActual; i++){
 			if (destructores[i] != null && Math.abs(destructores[i].getX() - numero) <= diferencia) {
@@ -32,6 +32,7 @@ public class Juego extends InterfaceJuego
 		}
 		return true;
 	}
+	
 	private void renderizarDestructorEstelar(DestructorEstelar[] destructores){
 		Random random = new Random();
 		for (int i = 0; i < destructores.length; i++) {		
