@@ -23,7 +23,7 @@ public class Juego extends InterfaceJuego
 
 	private boolean esUnico(DestructorEstelar[] destructores, int numero, int indiceActual){
 
-		int diferencia = 100;
+		int diferencia = 75;
 
 		for (int i = 0; i < indiceActual; i++){
 			if (destructores[i] != null && Math.abs(destructores[i].getX() - numero) <= diferencia) {
@@ -32,15 +32,15 @@ public class Juego extends InterfaceJuego
 		}
 		return true;
 	}
-	
+
 	private void renderizarDestructorEstelar(DestructorEstelar[] destructores){
 		Random random = new Random();
 		for (int i = 0; i < destructores.length; i++) {		
 			int destructorX = random.nextInt(anchoPantalla - 200) + 20;
 			int destructorY = random.nextInt(30) - 20;
-			while (!esUnico(destructores, destructorX, i)){
+			while (!esUnico(destructores, destructorX, cantidadDestructores)){
 				destructorX = random.nextInt(anchoPantalla - 200) + 20;
-				
+				System.out.println(" " + destructorX);
 			}
 			if (destructores[i] == null){
 				destructores[i] = new DestructorEstelar(destructorX, destructorY, 20, 20); // genera los 4 destructores iniciales
