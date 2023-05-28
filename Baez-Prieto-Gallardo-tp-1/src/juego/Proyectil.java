@@ -30,7 +30,12 @@ public class Proyectil {
 	public boolean salioDePantalla() {
 		return (this.y < 0); 				//devuelve si el proyectil salio de la pantalla
 	}
-
+	public boolean colisionoConAsteroide(Asteroide Asteroide) {
+		return Math.abs(x - Asteroide.getX()) < 20 && Math.abs(y - Asteroide.getY()) < 20;
+	}
+	public boolean colisionoConDestructor(DestructorEstelar DestructorEstelar) {
+		return Math.abs(x - DestructorEstelar.getX()) < 20 && Math.abs(y - DestructorEstelar.getY()) < 20;
+	}
 	public int getX() {
 		return x;
 	}

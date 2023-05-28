@@ -2,6 +2,8 @@ package juego;
 import entorno.Entorno;
 import entorno.InterfaceJuego;
 import java.util.Random;
+import entorno.Herramientas;
+import java.awt.Image;
 
 public class Juego extends InterfaceJuego
 {
@@ -18,6 +20,10 @@ public class Juego extends InterfaceJuego
 	private int altoPantalla = 600;	
 	private int cantidadDestructores = 4;
 	private long tiempoTranscurrido;
+	// private VidaExtra vidaExtra;
+	private int puntos;
+	private Image fondo;
+	private int cantidadDestructoresEliminados;
 	
 	// Variables y métodos propios de cada grupo
 
@@ -43,7 +49,7 @@ public class Juego extends InterfaceJuego
 				System.out.println(" " + destructorX);
 			}
 			if (destructores[i] == null){
-				destructores[i] = new DestructorEstelar(destructorX, destructorY, 20, 20); // genera los 4 destructores iniciales
+				destructores[i] = new DestructorEstelar(destructorX, destructorY, 20, 20); // genera destructores
 			}		
 		}
 	}
@@ -78,6 +84,7 @@ public class Juego extends InterfaceJuego
 	public void tick(){
 		// Procesamiento de un instante de tiempo
 		// ...
+		this.entorno.escribirTexto("Enemigos eliminados:  " + puntos, entorno.ancho() - entorno.ancho() / 5, entorno.alto() / 35);
 		if (this.asteroides != null) {
 			this.asteroides.dibujarse(this.entorno); // se dibuja el asteroide
 			if (this.asteroides.getxInicial() > (anchoPantalla / 2)) {
@@ -106,8 +113,8 @@ public class Juego extends InterfaceJuego
 				if(ionDestructor.salioDePantalla())
 				ionDestructor = null;
 			}
-			if (destructores[i].salioDePantalla()){
-				destructores[i] = null;
+			if (this.destructores[i].salioDePantalla()){ //modificado
+				this.destructores[i] = null; //modificado
 				renderizarDestructorEstelar(destructores);
 			}
 		}
@@ -127,8 +134,29 @@ public class Juego extends InterfaceJuego
 		if (miProyectil != null) {					//mientras el objeto existe se dibuja en pantalla y se mueve
 			miProyectil.dibujarse(this.entorno);
 			miProyectil.mover();
+			for (int i = 0; i < destructores.length; i++)
+				if (this.miProyectil != null && this.destructores[i ]!= null && this.miProyectil.colisionoConDestructor(destructores[i])) {
+					this.miProyectil = null;
+					this.destructores[i] = null;
+					puntos += 2;
+					renderizarDestructorEstelar(destructores);
+					cantidadDestructoresEliminados ++;		
+				}
 			if (miProyectil.salioDePantalla()){
 				miProyectil = null; 					//si el proyectil sale de la pantalla, se elimina el objeto
+			}
+			if (this.naveMegaShip.colisionoConAsteroide(this.asteroides)) {
+				this.asteroides = null;
+				this.naveMegaShip = null;
+			}
+			if (this.naveMegaShip.colisionoIonDestructor(this.ionDestructor)) {
+				this.ionDestructor = null;
+				this.naveMegaShip = null;
+			}
+			if (this.miProyectil.colisionoConAsteroide(this.asteroides)) {
+				this.asteroides = null;
+				this.miProyectil = null;
+				puntos += 1;
 			}
 		}	
 	}

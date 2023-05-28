@@ -12,10 +12,11 @@ public class Asteroide {
 	private int ancho;
 	private int alto;
 	private int velocidad;
+	private int anchoPantalla = 800;
 	
 	Asteroide(int x, int y,int ancho,int alto){
 		
-		this.xInicial = (int) (Math.random()*800 + 1);
+		this.xInicial = (int) (Math.random()*anchoPantalla + 1);
 		this.x = this.xInicial; // Asigna a x la primera coordenada (de donde arranca) para definir si se mueve hacia la derecha o izquierda
 		this.y = 1;
 		this.ancho = ancho;
